@@ -13,38 +13,42 @@
 </html>
 
 <!--
+Разрешения экрана 1388px и выше
+4 карточки в ряд
 
-Разрешения экрана 1355px и выше
-4 карточки
 
-#tl-loyalty-container {
-    max-width: 1355px;
-}
+Разрешения экрана от 1387px до 1066px
+3 карточки в ряд
 
-Разрешения экрана от 1354px до 1065px
-3 карточки
 
-#tl-loyalty-container {
-    max-width: 1065px;
-}
+Разрешения экрана от 1065px до 908px
+3 карточки в ряд c уменьшенной карточкой 270 * 173
 
-Разрешения экрана от 1064px до 722px
-3 карточки
 
-#tl-loyalty-container .card-img svg {
-        width: calc(326px * 0.85);
-        height: calc(204px * 0.85);
-    }
+Разрешения экрана от 907px до 666px
+1 карточка в ряд текст слева от карты
 
-Разрешения экрана от 721 и ниже
-мобильный вариант
+Разрешения экрана от 665px до 381px
+мобильный вариант полноразмерные карточки
 
+Разрешения экрана 380px и ниже
+мобильный вариант c уменьшенной карточкой 270 * 173
 -->
 
 <style>
+    #tl-loyalty-container, #tl-loyalty-container * {
+        box-sizing: border-box;
+    }
+    /*#tl-loyalty-container svg {*/
+    /*    display: none;*/
+    /*}*/
+    #tl-loyalty-container img {
+        display: none;
+    }
+
     /* Основные параметры контейнера */
     #tl-loyalty-container {
-        max-width: 1355px;
+        max-width: 1388px;
         margin: 35px auto;
         padding: 0 10px;
         text-align: center;
@@ -82,7 +86,7 @@
     #tl-loyalty-container .card {
         display: flex;
         flex-direction: column;
-        flex: 0 0 280px;
+        /*flex: 0 0 326px;*/
         border-radius: 20px;
         text-align: left;
         background-color: transparent;
@@ -94,12 +98,6 @@
         width: 326px;
         height: 204px;
     }
-    @media (max-width: 380px) {
-        #tl-loyalty-container .card-img svg {
-            width: calc(326px * 0.85);
-            height: calc(204px * 0.85);
-        }
-    }
 
     /* Текст карточки */
     #tl-loyalty-container .card-title {
@@ -108,6 +106,7 @@
 
     #tl-loyalty-container .card-text-container {
         display: flex;
+        width: 326px;
         border-radius: 0 0 15px 15px;
         border-top: none;
         background: #ffffff;
@@ -116,9 +115,8 @@
     #tl-loyalty-container .card-text-inner-container {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         height: 100%;
-        margin: 0 15px 5px;
+        margin: 15px 15px 25px;
         padding: 0;
     }
 
@@ -126,7 +124,7 @@
         display: flex;
         justify-content: space-between;
         margin: 0;
-        padding: 25px 0 0 0;
+        padding: 0;
         align-items: center;
     }
 
@@ -145,6 +143,7 @@
         margin: 0;
         padding: 30px 0 5px;
         color: #aaaaaa;
+        /*display: none;*/
     }
 
     /* Текст под блоком карт */
@@ -179,7 +178,7 @@
         font-size: 18px;
         font-weight: 700;
         line-height: 25px;
-        letter-spacing: 0em;
+        letter-spacing: 0;
         text-align: center;
 
         cursor: pointer;
@@ -193,6 +192,53 @@
         background: #B06C5F;
         color: #ffffff;
     }
+    @media (max-width: 1065px) {
+        #tl-loyalty-container {
+            padding: 0 5px;
+        }
+        #tl-loyalty-container .cards-container {
+            gap: 16px;
+        }
+        #tl-loyalty-container .card-img svg,
+        #tl-loyalty-container .card-img img {
+            width: calc(326px * 0.85);
+            height: calc(204px * 0.85);
+        }
+        #tl-loyalty-container .card-text-container {
+            width: calc(326px * 0.85);
+        }
+    }
+    @media (max-width: 907px) {
+        #tl-loyalty-container .cards-container {
+            gap: 30px;
+        }
+        #tl-loyalty-container .card {
+            flex-direction: row;
+        }
+        #tl-loyalty-container .card-img svg,
+        #tl-loyalty-container .card-img img {
+            width: 326px;
+            height: 204px;
+        }
+        #tl-loyalty-container .card-text-container {
+            width: 326px;
+        }
+    }
+    @media (max-width: 665px) {
+        #tl-loyalty-container .card {
+            flex-direction: column;
+        }
+    }
+    @media (max-width: 380px) {
+        #tl-loyalty-container .card-img svg,
+        #tl-loyalty-container .card-img img {
+            width: calc(326px * 0.85);
+            height: calc(204px * 0.85);
+        }
+        #tl-loyalty-container .card-text-container {
+            width: calc(326px * 0.85);
+        }
+    }
 </style>
 
 <div id="tl-loyalty-container">
@@ -203,6 +249,7 @@
         <!--    Карточка    -->
         <div class="card">
             <div class="card-img">
+                <img src="bronze.svg" width="326" height="204" alt="Скидочная карта">
                 <!--      SVG          -->
                 <svg width="381" height="244" viewBox="0 0 381 244" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="381" height="243.541" rx="20" fill="url(#paint0_linear_25_654)"/>
@@ -251,6 +298,7 @@
         <!--    Карточка    -->
         <div class="card">
             <div class="card-img">
+                <img src="bronze.svg" width="326" height="204" alt="Скидочная карта">
                 <!--      SVG          -->
                 <svg width="381" height="244" viewBox="0 0 381 244" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="381" height="243.541" rx="20" fill="url(#paint0_linear_25_720)"/>
@@ -299,6 +347,7 @@
         <!--    Карточка    -->
         <div class="card">
             <div class="card-img">
+                <img src="bronze.svg" width="326" height="204" alt="Скидочная карта">
                 <!--      SVG          -->
                 <svg width="381" height="244" viewBox="0 0 381 244" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="381" height="243.541" rx="20" fill="url(#paint0_linear_25_618)"/>
@@ -353,6 +402,7 @@
         <!--    Карточка    -->
         <div class="card">
             <div class="card-img">
+                <img src="bronze.svg" width="326" height="204" alt="Скидочная карта">
                 <!--      SVG          -->
                 <svg width="381" height="244" viewBox="0 0 381 244" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="381" height="243.541" rx="20" fill="url(#paint0_linear_25_669)"/>
