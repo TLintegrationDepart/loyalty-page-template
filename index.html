@@ -256,6 +256,30 @@
         margin-bottom: 30px;
     }
 
+    #tl-loyalty .tl-popup {
+        display: none;
+        position: absolute;
+        background-color: #c4daef;
+        border: 1px solid #ccc;
+        padding: 15px;
+        z-index: 1;
+        margin-top: 100px;
+    }
+
+    #tl-loyalty .tl-popup::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 9px solid transparent;
+        border-bottom: 9px solid #333333;
+    }
+
+    #tl-loyalty .tl-btn-loyalty:hover + .tl-popup {
+        display: block;
+    }
+
     @container (max-width: 1209px) {
         #tl-loyalty {
             max-width: 800px;
@@ -526,7 +550,13 @@
             </ul>
         </div>
         <div class="tl-btn-container">
-            <a href="#" class="tl-btn-loyalty">Личный кабинет</a>
+                <!-- Для презентации <button>, для интеграции <a> -->
+            <!--  <a href="/lk" class="tl-btn-loyalty">Личный кабинет</a> -->
+            <button class="tl-btn-loyalty">Личный кабинет</button>
+            <div class="tl-popup">
+                При нажатии на кнопку<br>
+                переход в ЛК
+            </div>
         </div>
     </div>
 </div>
