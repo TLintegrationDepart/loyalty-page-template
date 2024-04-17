@@ -366,6 +366,119 @@
     }
 </style>
 
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        height: 99px;
+        background: #ffffff;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+    .header__wrapper {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 0 43px;
+    }
+    .header__logo {
+        margin-right: 60px;
+    }
+    .header__nav {
+        max-width: 840px;
+        width: 840px;
+    }
+
+    .nav__list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav__item {
+        list-style-type: none;
+    }
+
+    .nav__link {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 26px;
+        text-decoration: none;
+        color: #000000;
+        text-transform: uppercase;
+    }
+
+    .nav__item--current .nav__link {
+        color: #014AB9;
+        text-decoration: underline;
+    }
+
+    .button {
+        padding: 15px 20px;
+        border-radius: 4px;
+        font-size: 18px;
+        border: none;
+    }
+    .button--primary {
+        background: #0047A7;
+        color: #ffffff;
+    }
+    
+    .header__mobile-menu {
+        display: none;
+    }
+    @media (max-width: 860px) {
+        .header__nav, .header__button-wrapper {
+            display: none;
+        }
+        .header__mobile-menu {
+            display: block;
+        }
+    }
+</style>
+
+<header class="header">
+    <div class="header__wrapper">
+        <div class="header__logo">
+            <img src="images/logo.svg" alt="Логотип" width="102" height="40" >
+        </div>
+        <nav class="header__nav nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="#">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#">Номера</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#">Ресторан</a>
+                </li>
+                <li class="nav__item nav__item--current">
+                    <a class="nav__link" href="#">Программа лояльности</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__button-wrapper">
+            <button class="button button--primary">
+                Забронировать
+            </button>
+        </div>
+        <div class="header__mobile-menu">
+            <img src="images/burger.svg" alt="Мобильное меню" width="22" height="17">
+        </div>
+    </div>
+
+</header>
 
 <div id="tl-loyalty-container">
     <div id="tl-loyalty">
